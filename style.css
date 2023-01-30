@@ -7,7 +7,7 @@ html{
   font-family:'Courier New', Courier, monospace;
 }
 
-header,#choices,main,#round_box{
+header,#choices,main,#round_box,#score_box,#score_box div{
   display: flex;
   justify-content: center;
 }
@@ -66,4 +66,23 @@ main{
   color: aliceblue;
   font-weight: bold;
   font-size: 20px;
+}
+
+#score_box{
+  margin-top: 20px;
+  gap: 50px;
+}
+
+#score_box div{
+  align-items: center;
+  background-color: black;
+  width: 150px;
+  height: 100px;
+  border: 1px solid aliceblue;
+}
+
+#player_box,#computer_box{
+  color: aliceblue;
+  font-family: 22px;
+  font-weight: bold;
 }

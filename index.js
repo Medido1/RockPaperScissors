@@ -4,6 +4,8 @@ const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissor = document.getElementById("scissor");
 const round_result = document.getElementById("round_result");
+const player_box = document.getElementById("player_box")
+const computer_box = document.getElementById("computer_box");
 
 rock.addEventListener("click", ()=> {
 	playRound("rock")
@@ -67,6 +69,8 @@ function showRoundResult(roundWinner, playerChoice, computerChoice){
 		round_result.textContent = `You lose :( ${computerChoice} beats ${playerChoice}`;
 		round_box.style.backgroundColor = "red";
 	}
+	player_box.textContent = `You : ${playerScore}`;
+	computer_box.textContent = `Computer : ${ComputerScore}`;
 }
 
 
