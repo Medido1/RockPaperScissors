@@ -8,14 +8,28 @@ const player_box = document.getElementById("player_box")
 const computer_box = document.getElementById("computer_box");
 const player_score_box= document.getElementById("player_score_box");
 const computer_score_box = document.getElementById("computer_score_box");
+const final_result = document.getElementById("final_result");
 
 rock.addEventListener("click", ()=> {
+	if (isGameOver()){
+		alert("Game over!! Press PlayAgain to start a new game!!");
+		return;
+	}
 	playRound("rock")
 })
+
 paper.addEventListener("click", ()=> {
+	if (isGameOver()){
+		alert("Game over!! Press PlayAgain to start a new game!!");
+		return;
+	}
 	playRound("paper")
 })
 scissor.addEventListener("click", ()=> {
+	if (isGameOver()){
+		alert("Game over!! Press PlayAgain to start a new game!!");
+		return;
+	}
 	playRound("scissor")
 })
 
@@ -55,7 +69,10 @@ function playRound(playerChoice, computerChoice){
       roundWinner = computerChoice;
       computerScore++
   }
-	showRoundResult(roundWinner, playerChoice, computerChoice)
+	showRoundResult(roundWinner, playerChoice, computerChoice);
+	if (isGameOver()){
+		showFinalResult(playerScore, computerScore);
+	}
 }
 
 function showRoundResult(roundWinner, playerChoice, computerChoice){
@@ -97,4 +114,15 @@ function changeSize(playerScore, computerScore){
 	}
 }
 
+function isGameOver(){
+	return (playerScore === 5 || computerScore === 5);
+}
 
+function showFinalResult(playerChoice, computerChoice){
+	if (playerScore > computerScore){
+		final_result.textContent = `You win!! You : ${playerScore} Computer : ${computerScore}`;
+	}
+	else if (playerScore < computerScore){
+		final_result.textContent = `You lose :( Computer : ${computerScore} You : ${computerScore}`;
+	}
+}

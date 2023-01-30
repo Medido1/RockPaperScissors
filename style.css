@@ -7,7 +7,7 @@ html{
   font-family:'Courier New', Courier, monospace;
 }
 
-header,#choices,main,#round_box,#score_box,#score_box div{
+header,#choices,main,#round_box,#score_box,#score_box div,#final_box{
   display: flex;
   justify-content: center;
 }
@@ -52,7 +52,7 @@ main{
   transform: scale(0.9);
 }
 
-#round_box{
+#round_box,#final_box{
   align-items: center;
   margin-top: 20px;
   background-color: black;
@@ -62,7 +62,7 @@ main{
   height: 100px;
 }
 
-#round_result{
+#round_result,#final_result{
   color: aliceblue;
   font-weight: bold;
   font-size: 20px;
@@ -95,3 +95,4 @@ main{
 .shrink{
   transform: scale(0.9);
 }
+
