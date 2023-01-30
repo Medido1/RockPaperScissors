@@ -1,4 +1,4 @@
-let roundWinner = ""; let playerScore=0; let ComputerScore = 0;
+let roundWinner = ""; let playerScore=0; let computerScore = 0;
 
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
@@ -6,6 +6,8 @@ const scissor = document.getElementById("scissor");
 const round_result = document.getElementById("round_result");
 const player_box = document.getElementById("player_box")
 const computer_box = document.getElementById("computer_box");
+const player_score_box= document.getElementById("player_score_box");
+const computer_score_box = document.getElementById("computer_score_box");
 
 rock.addEventListener("click", ()=> {
 	playRound("rock")
@@ -51,7 +53,7 @@ function playRound(playerChoice, computerChoice){
     (playerChoice === "paper" && computerChoice === "scissor")||
     (playerChoice === "scissor" && computerChoice === "rock")){
       roundWinner = computerChoice;
-      ComputerScore++
+      computerScore++
   }
 	showRoundResult(roundWinner, playerChoice, computerChoice)
 }
@@ -70,7 +72,29 @@ function showRoundResult(roundWinner, playerChoice, computerChoice){
 		round_box.style.backgroundColor = "red";
 	}
 	player_box.textContent = `You : ${playerScore}`;
-	computer_box.textContent = `Computer : ${ComputerScore}`;
+	computer_box.textContent = `Computer : ${computerScore}`;
+	changeSize(playerScore, computerScore);
+}
+
+function changeSize(playerScore, computerScore){
+	if (playerScore === computerScore){
+		player_score_box.classList.remove("shrink");
+		computer_score_box.classList.remove("grow");
+		player_score_box.classList.remove("grow");
+		computer_score_box.classList.remove("shrink");
+	}
+	else if (playerScore > computerScore){
+		player_score_box.classList.remove("shrink")
+		computer_score_box.classList.remove("grow");
+		player_score_box.classList.add("grow");
+		computer_score_box.classList.add("shrink");
+	}
+	else if (playerScore < computerScore){
+		player_score_box.classList.remove("grow")
+		computer_score_box.classList.remove("shrink");
+		player_score_box.classList.add("shrink");
+		computer_score_box.classList.add("grow");
+	}
 }
 
 

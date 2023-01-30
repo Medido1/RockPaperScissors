@@ -79,10 +79,19 @@ main{
   width: 150px;
   height: 100px;
   border: 1px solid aliceblue;
+  transition: 1s;
 }
 
 #player_box,#computer_box{
   color: aliceblue;
   font-family: 22px;
   font-weight: bold;
+}
+
+.grow{
+  transform: scale(1.2);
+}
+
+.shrink{
+  transform: scale(0.9);
 }
