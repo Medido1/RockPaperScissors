@@ -9,6 +9,7 @@ const computer_box = document.getElementById("computer_box");
 const player_score_box= document.getElementById("player_score_box");
 const computer_score_box = document.getElementById("computer_score_box");
 const final_result = document.getElementById("final_result");
+const restart_btn = document.getElementById("restart_btn");
 
 rock.addEventListener("click", ()=> {
 	if (isGameOver()){
@@ -31,6 +32,16 @@ scissor.addEventListener("click", ()=> {
 		return;
 	}
 	playRound("scissor")
+})
+
+restart_btn.addEventListener("click", ()=>{
+	round_result.textContent = "choose Rock Paper or Scissor!!";
+	final_result.textContent = "First to 5 wins!!";
+	round_box.style.backgroundColor = "black";
+	playerScore = 0; computerScore = 0;
+	player_box.textContent = `You : ${playerScore}`;
+	computer_box.textContent = `Computer : ${computerScore}`;
+	removeClasses(player_score_box, computer_score_box);
 })
 
 function getComputerChoice(){
@@ -118,11 +129,18 @@ function isGameOver(){
 	return (playerScore === 5 || computerScore === 5);
 }
 
-function showFinalResult(playerChoice, computerChoice){
+function showFinalResult(playerScore, computerScore){
 	if (playerScore > computerScore){
 		final_result.textContent = `You win!! You : ${playerScore} Computer : ${computerScore}`;
 	}
 	else if (playerScore < computerScore){
-		final_result.textContent = `You lose :( Computer : ${computerScore} You : ${computerScore}`;
+		final_result.textContent = `You lose :( Computer : ${computerScore} You : ${playerScore}`;
 	}
+}
+
+function removeClasses(player_score_box, computer_score_box){
+	player_score_box.classList.remove("grow");
+	player_score_box.classList.remove("shrink");
+	computer_score_box.classList.remove("grow");
+	computer_score_box.classList.remove("shrink");
 }
