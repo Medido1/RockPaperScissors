@@ -34,15 +34,7 @@ scissor.addEventListener("click", ()=> {
 	playRound("scissor")
 })
 
-restart_btn.addEventListener("click", ()=>{
-	round_result.textContent = "choose Rock Paper or Scissor!!";
-	final_result.textContent = "First to 5 wins!!";
-	round_box.style.backgroundColor = "black";
-	playerScore = 0; computerScore = 0;
-	player_box.textContent = `You : ${playerScore}`;
-	computer_box.textContent = `Computer : ${computerScore}`;
-	removeClasses(player_score_box, computer_score_box);
-})
+restart_btn.addEventListener("click", restartGame);
 
 function getComputerChoice(){
   let randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -143,4 +135,14 @@ function removeClasses(player_score_box, computer_score_box){
 	player_score_box.classList.remove("shrink");
 	computer_score_box.classList.remove("grow");
 	computer_score_box.classList.remove("shrink");
+}
+
+function restartGame(){
+	round_result.textContent = "choose Rock Paper or Scissor!!";
+	final_result.textContent = "First to 5 wins!!";
+	round_box.style.backgroundColor = "black";
+	playerScore = 0; computerScore = 0;
+	player_box.textContent = `You : ${playerScore}`;
+	computer_box.textContent = `Computer : ${computerScore}`;
+	removeClasses(player_score_box, computer_score_box);
 }
