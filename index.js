@@ -91,4 +91,4 @@ function game(){
     }
 }
 
-alert(game())
+
