@@ -81,11 +81,11 @@ function playRound(playerChoice, computerChoice){
 function showRoundResult(roundWinner, playerChoice, computerChoice){
 	if (roundWinner === "draw"){
 		round_result.textContent = "it'a Draw!!";
-		round_box.style.backgroundColor = "green";
+		round_box.style.backgroundColor = "gray";
 	}
 	else if (roundWinner === playerChoice){
 		round_result.textContent = `You win!! ${playerChoice} beats ${computerChoice}`;
-		round_box.style.backgroundColor = "blue";
+		round_box.style.backgroundColor = "green";
 	}
 	else if (roundWinner === computerChoice){
 		round_result.textContent = `You lose :( ${computerChoice} beats ${playerChoice}`;
